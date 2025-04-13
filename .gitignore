@@ -21,8 +21,10 @@ wheels/
 *.egg
 
 # Virtual Environment
-venv/
+.env
+.venv
 env/
+venv/
 ENV/
 
 # IDE
@@ -31,12 +33,9 @@ ENV/
 *.swp
 *.swo
 
-# Environment variables
-.env
-
-# Cache
-cache/
-*.cache
+# OS
+.DS_Store
+Thumbs.db
 
 # Logs
 *.log
@@ -45,7 +44,22 @@ logs/
 # Test coverage
 .coverage
 htmlcov/
+.pytest_cache/
+.tox/
+coverage.xml
+*.cover
 
-# Local development
-*.db
-*.sqlite3 
+# Distribution
+dist/
+build/
+*.tar.gz
+
+# Documentation
+docs/_build/
+site/
+
+# Project specific
+*.pdf  # Ignore test PDFs
+*.mismo  # Ignore MISMO files
+*.json  # Ignore JSON files except config
+!mcp_config.json  # Keep config file 

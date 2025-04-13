@@ -49,7 +49,10 @@ async def call_tool(request: ToolRequest):
         raise HTTPException(status_code=404, detail=f"Tool {tool_name} not found")
 
     try:
-        if tool_name == "parse_le_to_mismo_json":
+        if tool_name == "hello":
+            name = input_data.get("name", "World")
+            return {"output": f"Hello, {name}!"}
+        elif tool_name == "parse_le_to_mismo_json":
             return {"output": parse_le_to_mismo(input_data)}
         elif tool_name == "parse_cd_to_mismo_json":
             return {"output": parse_cd_to_mismo(input_data)}

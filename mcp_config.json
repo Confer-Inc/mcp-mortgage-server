@@ -1,6 +1,22 @@
 {
   "tools": [
     {
+      "name": "hello",
+      "name_for_human": "Say Hello",
+      "name_for_model": "hello",
+      "description": "Returns a hello message with optional name parameter",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "name": { 
+            "type": "string",
+            "description": "Name to say hello to"
+          }
+        }
+      },
+      "return_direct": true
+    },
+    {
       "name": "parse_le_to_mismo_json",
       "description": "Parses LE PDF and returns MISMO-compliant JSON with LLM metadata.",
       "input_schema": {
