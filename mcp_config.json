@@ -1,0 +1,80 @@
+{
+  "tools": [
+    {
+      "name": "parse_le_to_mismo_json",
+      "description": "Parses LE PDF and returns MISMO-compliant JSON with LLM metadata.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "pdf_url": { 
+            "type": "string",
+            "description": "URL to the Loan Estimate PDF document"
+          }
+        },
+        "required": ["pdf_url"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "GFEOriginationCharges": {
+            "type": "object",
+            "properties": {
+              "value": { "type": "number" },
+              "description": { "type": "string" },
+              "flags": { "type": "array", "items": { "type": "string" } },
+              "tolerance_bucket": { "type": "string" },
+              "source_location": { "type": "string" }
+            }
+          },
+          "APRDelta": { "type": "number" },
+          "DeliveryTimeline": {
+            "type": "object",
+            "properties": {
+              "received_by_borrower": { "type": "string", "format": "date" },
+              "days_to_close": { "type": "integer" },
+              "compliance_check": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "parse_cd_to_mismo_json",
+      "description": "Parses CD PDF and returns MISMO-compliant JSON with LLM metadata.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "pdf_url": { 
+            "type": "string",
+            "description": "URL to the Closing Disclosure PDF document"
+          }
+        },
+        "required": ["pdf_url"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "GFEOriginationCharges": {
+            "type": "object",
+            "properties": {
+              "value": { "type": "number" },
+              "description": { "type": "string" },
+              "flags": { "type": "array", "items": { "type": "string" } },
+              "tolerance_bucket": { "type": "string" },
+              "source_location": { "type": "string" }
+            }
+          },
+          "APRDelta": { "type": "number" },
+          "DeliveryTimeline": {
+            "type": "object",
+            "properties": {
+              "received_by_borrower": { "type": "string", "format": "date" },
+              "days_to_close": { "type": "integer" },
+              "compliance_check": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

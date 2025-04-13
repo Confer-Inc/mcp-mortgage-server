@@ -1,0 +1,16 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @confersolutions will be requested for review when someone 
+# opens a pull request.
+*       @confersolutions
+
+# MCP configuration files
+mcp_config.json    @confersolutions
+
+# API implementation
+/main.py           @confersolutions
+/tools/            @confersolutions
+/utils/            @confersolutions
+
+# Tests
+/tests/            @confersolutions 
